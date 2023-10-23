@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from 'react-native';
 
-import Estrela from 'Estrela.js';
+import Estrela from "../Estrela";
 
 export default function Estrelas({
     quantidade: quantidadeAntiga,
