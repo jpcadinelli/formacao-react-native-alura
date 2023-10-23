@@ -1,37 +1,38 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
-import Estrela from "Estrela.js";
+import { View, StyleSheet } from 'react-native';
 
-export default function Estrelas({ 
+import Estrela from 'Estrela.js';
+
+export default function Estrelas({
     quantidade: quantidadeAntiga,
-    editavel = true,
-    grande = true,
- }) {
-    const [quantidade, setQuantidade] = useState(quantidadeAntiga);
+    editavel = false,
+    grande = false,
+}) {
+    const [ quantidade, setQuantidade ] = useState(quantidadeAntiga);
 
     const RenderEstrelas = () => {
         const listaEstrelas = [];
         for (let i = 0; i < 5; i++) {
             listaEstrelas.push(
-                <Estrela 
+                <Estrela
                     key={i}
                     onPress={() => setQuantidade(i + 1)}
                     desabilitada={!editavel}
                     preenchida={i < quantidade}
-                    grande={grande}
-                 />
+                    grande={grande} />
             );
         }
-        return listaEstrelas
+
+        return listaEstrelas;
     }
-    return <View style={estilos.estrelas} >
+
+    return <View style={estilos.estrelas}>
         <RenderEstrelas />
     </View>
-};
+}
 
 const estilos = StyleSheet.create({
     estrelas: {
         flexDirection: 'row',
-        marginRight: 2,
     },
 });
